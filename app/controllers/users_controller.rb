@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   end
   
   def get_user_pic(user)
-    IO.copy_stream(URI.parse(user['picture']['large']).open , './app/assets/images/users-large/' + user["login"]["username"] + '.jpg')
-    IO.copy_stream(URI.parse(user['picture']['medium']).open , './app/assets/images/users-medium/' + user["login"]["username"] + '.jpg')
-    IO.copy_stream(URI.parse(user['picture']['thumbnail']).open , './app/assets/images/users-thumbnail/' + user["login"]["username"] + '.jpg')
+    IO.copy_stream(URI.parse(user['picture']['large']).open , './public/images/users-large/' + user["login"]["username"] + '.jpg')
+    IO.copy_stream(URI.parse(user['picture']['medium']).open , './public/images/users-medium/' + user["login"]["username"] + '.jpg')
+    IO.copy_stream(URI.parse(user['picture']['thumbnail']).open , './puclic/images/users-thumbnail/' + user["login"]["username"] + '.jpg')
   end
 
   def new_users
