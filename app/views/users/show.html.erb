@@ -1,0 +1,32 @@
+<h1>Users#show</h1>
+<h2>User: <%= @user[:data]["login"]["username"]%></h2>
+
+<div>
+
+  <img src="<%= '../images/users-large/' + @user[:data]['login']['username'] + '.jpg' %>" alt="" />
+  <%= @user[:data]["name"]["first"]%>
+  <%= @user[:data]["name"]["last"]%>
+  <p>Age: 
+  <%= @user[:data]["dob"]["age"]%>
+  </p>
+  <p>Email:
+  <%= @user[:data]["email"]%>
+  </p>
+  <p>Phone:
+  <%= @user[:data]["phone"]%>
+  </p>
+  <p>Cell:
+  <%= @user[:data]["cell"]%>
+  </p>
+
+  <p>Adress:
+    <%= @user[:data]["location"]["street"]["name"]%>,
+    <%= @user[:data]["location"]["street"]["number"]%>,
+    <%= @user[:data]["location"]["city"]%> -
+    <%= @user[:data]["location"]["state"]%>, 
+    <%= @user[:data]["location"]["country"]%>,
+    <%= @user[:data]["location"]["postcode"]%>
+  </p>
+
+</div>
+
