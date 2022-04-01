@@ -3,28 +3,29 @@ class UsersController < ApplicationController
   require 'open-uri'
 
   def index
-    @users = User.all 
+    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
   end
-  
-  def get_user_pic(user)
-    IO.copy_stream(URI.parse(user['picture']['large']).open , './public/images/users-large/' + user["login"]["username"] + '.jpg')
-    IO.copy_stream(URI.parse(user['picture']['medium']).open , './public/images/users-medium/' + user["login"]["username"] + '.jpg')
-    IO.copy_stream(URI.parse(user['picture']['thumbnail']).open , './puclic/images/users-thumbnail/' + user["login"]["username"] + '.jpg')
+
+  def get_user_pic(picture, username, size)
+    IO.copy_stream(URI.parse(picture).open, "./public/images/users-#{size}/#{username}.jpg")
   end
 
   def new_users
-    url = 'https://randomuser.me/api/?results=2'
+    url = 'https://randomuser.me/api/?results=30'
 
     JSON.parse(RestClient.get(url))['results'].map do |user|
       User.create(data: user)
-      get_user_pic(user)
+      picture = user['picture']
+      username = user['login']['username']
+      get_user_pic(picture['large'], username, 'large')
+      get_user_pic(picture['medium'], username, 'medium')
+      get_user_pic(picture['thumbnail'], username, 'thumbnail')
     end
 
     render json: User.all
-
   end
 end
