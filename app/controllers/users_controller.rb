@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     IO.copy_stream(URI.parse(picture).open, "./public/images/users-#{size}/#{username}.jpg")
   end
 
-  def new_users
+  def import_users
     url = 'https://randomuser.me/api/?results=30'
 
     JSON.parse(RestClient.get(url))['results'].map do |user|

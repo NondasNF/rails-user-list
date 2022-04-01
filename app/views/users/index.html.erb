@@ -1,7 +1,6 @@
-<h1>Users#index</h1>
 <h2>All users: </h2>
 
-<table>
+<table class="table table-striped">
   <thead >
     <tr>
       <th>User</th>
@@ -15,7 +14,7 @@
     <% @users.each do |user| %>
       <tr>
         <td>
-            <img src="<%= './images/users-thumbnail/' + user[:data]['login']['username'] + '.jpg' %>" alt="" />
+            <img src="<%= '/images/users-thumbnail/' + user[:data]['login']['username'] + '.jpg' %>" alt="" />
         </td>
         <td>
           <%= user[:data]["name"]["first"]%>
@@ -34,4 +33,6 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @users%>
+<div>
+  <%= paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-centered"  %>
+</div>

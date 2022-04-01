@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get '/new-users', to: 'users#new_users'
+  get '/import_users', to: 'users#import_users'
   resources :users
 end
