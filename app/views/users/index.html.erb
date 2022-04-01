@@ -15,7 +15,7 @@
     <% @users.each do |user| %>
       <tr>
         <td>
-          <img src="<%= './images/users-thumbnail/' + user[:data]['login']['username'] + '.jpg' %>" alt="" />
+            <img src="<%= './images/users-thumbnail/' + user[:data]['login']['username'] + '.jpg' %>" alt="" />
         </td>
         <td>
           <%= user[:data]["name"]["first"]%>
@@ -34,3 +34,4 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @users%>

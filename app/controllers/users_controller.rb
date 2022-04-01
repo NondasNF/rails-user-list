@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   require 'open-uri'
 
   def index
-    @users = User.all
+    @users = User.page params[:page]
   end
 
   def show
