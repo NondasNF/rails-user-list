@@ -22,6 +22,11 @@
 /storage/*
 !/storage/.keep
 
+
+/public/images/users-medium/*
+/public/images/users-thumbnail/*
+/public/images/users-large/*
+
 /public/assets
 .byebug_history
 
