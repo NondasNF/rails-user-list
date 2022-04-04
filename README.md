@@ -14,7 +14,10 @@ The main data served by the api are:
 
 It is also part of the challenge to save the user's pictures to local storage.
 
-### My opinion:
+## My opinion:
+
+__Hours spent developing and reading articles related to the project: 12__
+
 I found it incredibly interesting because I had never consumed any API in Rails, I liked the implementation experience, I had never used local storage before either and I was very excited to implement it with Rails, but I'm not sure if the current method is the best way to do it, so at first I was planning to do something like JavaScript, but I wasn't sure if I could do it with rails, so I decided to do it with pure rails, saving the images in the local storage folder, and then rendering the images in the display.
 I would like to dedicate more time to this project and study more about local storage.
 
